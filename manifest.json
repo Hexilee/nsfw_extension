@@ -1,0 +1,35 @@
+{
+  "manifest_version": 2,
+  "name": "NSFW Wall",
+  "version": "1.0.0",
+  "description": "隔绝 NSFW 图片对工作的的干扰",
+  "icons": {
+    "16": "img/icon.jpeg",
+    "48": "img/icon.jpeg",
+    "128": "img/icon.jpeg"
+  },
+  "browser_action": {
+    "default_icon": "img/icon.jpeg",
+    "default_title": "隔绝 NSFW 图片对工作的的干扰",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "js/nsfw.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "permissions": [
+    "contextMenus",
+    "webRequest",
+    "webRequestBlocking",
+    "storage",
+    "http://*/*",
+    "https://*/*"
+  ]
+}
